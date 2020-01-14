@@ -35,8 +35,19 @@ namespace CapDeviceManager.Services
                 deviceCodeToken = dcsTokens[dcsTokens.Length - 3];
             }
 
-            LoginModel model = new LoginModel(deviceCodeToken);
-            return model;
+            if (String.IsNullOrWhiteSpace(deviceCodeToken))
+                return null;
+
+            try
+            {
+                LoginModel model = new LoginModel(deviceCodeToken);
+                return model;
+            }
+            catch (Exception exc)
+            {
+                return null;
+            }
+
         }
     }
 }

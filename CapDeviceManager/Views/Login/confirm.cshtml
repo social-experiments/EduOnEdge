@@ -1,0 +1,17 @@
+﻿@model AccountModel
+
+@{
+    ViewData["Title"] = "Azure Login";
+}
+<div style="padding:30px">
+    <h1 class="display-4">Azure Account Information</h1>
+    <p style="padding: 20px"> </p>
+    <p>You are signed in into Azure</p>
+    <h4>User: @Model.User.Name </h4>
+    <p style="padding: 20px"> </p>
+    <p>Do you want to Sign-In as another User ? </p>
+    <a class="btn btn-primary" asp-controller="Login" asp-action="SignIn" role="button">Sign Out</a>
+    <p style="padding: 20px"> </p>
+    <p>Select the link below to Choose Subscription.</p>
+    <a class="btn btn-primary" asp-controller="Subscription" asp-action="Select" role="button">Select Subscription</a>
+</div>

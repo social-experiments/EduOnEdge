@@ -30,6 +30,10 @@ namespace CapDeviceManager.Utils
         {
             try
             {
+                //Logout the User
+                AzLogoutUser();
+
+                //Clear All the Account
                 AzClearAccounts();
 
                 azOutput.Clear();
@@ -49,12 +53,12 @@ namespace CapDeviceManager.Utils
                 azProcess.StartInfo.RedirectStandardError = true;
                 azProcess.OutputDataReceived += (sender, data) =>
                 {
-                    azOutput.Append(data.Data).Append(Environment.NewLine);
+                    azOutput.Append(data.Data);
                     Debug.WriteLine("Output: " + data.Data);
                 };
                 azProcess.ErrorDataReceived += (sender, data) =>
                 {
-                    azError.Append(data.Data).Append(Environment.NewLine);
+                    azError.Append(data.Data);
                     Debug.WriteLine("Error: " + data.Data);
                 };
 
@@ -88,12 +92,12 @@ namespace CapDeviceManager.Utils
                 azProcess.StartInfo.RedirectStandardError = true;
                 azProcess.OutputDataReceived += (sender, data) =>
                 {
-                    azOutput.Append(data.Data).Append(Environment.NewLine);
+                    azOutput.Append(data.Data);
                     Debug.WriteLine("Output: " + data.Data);
                 };
                 azProcess.ErrorDataReceived += (sender, data) =>
                 {
-                    azError.Append(data.Data).Append(Environment.NewLine);
+                    azError.Append(data.Data);
                     Debug.WriteLine("Error: " + data.Data);
                 };
 
@@ -107,6 +111,85 @@ namespace CapDeviceManager.Utils
                 Console.WriteLine(exc.Message.ToString());
             }
         }
+
+        public static void AzAccountDetails()
+        {
+            try
+            {
+                azOutput.Clear();
+                azError.Clear();
+
+                azProcess = new Process();
+
+                azProcess.StartInfo.WorkingDirectory = @"c:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\wbin";
+                azProcess.StartInfo.FileName = "az.cmd";
+                azProcess.StartInfo.Arguments = "account show --output jsonc";
+
+                azProcess.StartInfo.CreateNoWindow = true;
+                azProcess.StartInfo.UseShellExecute = false;
+                azProcess.StartInfo.RedirectStandardOutput = true;
+                azProcess.StartInfo.RedirectStandardError = true;
+                azProcess.OutputDataReceived += (sender, data) =>
+                {
+                    azOutput.Append(data.Data);
+                    Debug.WriteLine("Output: " + data.Data);
+                };
+                azProcess.ErrorDataReceived += (sender, data) =>
+                {
+                    azError.Append(data.Data);
+                    Debug.WriteLine("Error: " + data.Data);
+                };
+
+                azProcess.Start();
+                azProcess.BeginOutputReadLine();
+                azProcess.BeginErrorReadLine();
+                azProcess.WaitForExit();
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc.Message.ToString());
+            }
+        }
+
+        public static void AzLogoutUser()
+        {
+            try
+            {
+                azOutput.Clear();
+                azError.Clear();
+
+                azProcess = new Process();
+
+                azProcess.StartInfo.WorkingDirectory = @"c:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\wbin";
+                azProcess.StartInfo.FileName = "az.cmd";
+                azProcess.StartInfo.Arguments = "logout --output jsonc";
+
+                azProcess.StartInfo.CreateNoWindow = true;
+                azProcess.StartInfo.UseShellExecute = false;
+                azProcess.StartInfo.RedirectStandardOutput = true;
+                azProcess.StartInfo.RedirectStandardError = true;
+                azProcess.OutputDataReceived += (sender, data) =>
+                {
+                    azOutput.Append(data.Data);
+                    Debug.WriteLine("Output: " + data.Data);
+                };
+                azProcess.ErrorDataReceived += (sender, data) =>
+                {
+                    azError.Append(data.Data);
+                    Debug.WriteLine("Error: " + data.Data);
+                };
+
+                azProcess.Start();
+                azProcess.BeginOutputReadLine();
+                azProcess.BeginErrorReadLine();
+                azProcess.WaitForExit();
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc.Message.ToString());
+            }
+        }
+
         public static void AzGetSubscription()
         {
             try
@@ -125,12 +208,12 @@ namespace CapDeviceManager.Utils
                 azProcess.StartInfo.RedirectStandardError = true;
                 azProcess.OutputDataReceived += (sender, data) =>
                 {
-                    azOutput.Append(data.Data).Append(Environment.NewLine);
+                    azOutput.Append(data.Data);
                     Debug.WriteLine("Output: " + data.Data);
                 };
                 azProcess.ErrorDataReceived += (sender, data) =>
                 {
-                    azError.Append(data.Data).Append(Environment.NewLine);
+                    azError.Append(data.Data);
                     Debug.WriteLine("Error: " + data.Data);
                 };
 
@@ -162,12 +245,12 @@ namespace CapDeviceManager.Utils
                 azProcess.StartInfo.RedirectStandardError = true;
                 azProcess.OutputDataReceived += (sender, data) =>
                 {
-                    azOutput.Append(data.Data).Append(Environment.NewLine);
+                    azOutput.Append(data.Data);
                     Debug.WriteLine("Output: " + data.Data);
                 };
                 azProcess.ErrorDataReceived += (sender, data) =>
                 {
-                    azError.Append(data.Data).Append(Environment.NewLine);
+                    azError.Append(data.Data);
                     Debug.WriteLine("Error: " + data.Data);
                 };
 

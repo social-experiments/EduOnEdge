@@ -25,7 +25,9 @@ namespace CapDeviceManager
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<INetworkRepository, NetworkRepository>();
             services.AddScoped<ILoginRepository, LoginRepository>();
+            services.AddScoped<IAccountRepository, AccountRepository>();
             services.AddScoped<IAccessTokenRepository, AccessTokenRepository>();
             services.AddScoped<ISubscriptionRepository, SubscriptionRepository>();
             

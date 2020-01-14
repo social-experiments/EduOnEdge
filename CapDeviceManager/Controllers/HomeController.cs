@@ -25,8 +25,7 @@ namespace CapDeviceManager.Controllers
 
         public IActionResult Index()
         {
-            LoginModel loginModel = loginRepository.GetLoginModel();
-            return View(loginModel);
+            return View();
         }
     }
 }

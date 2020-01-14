@@ -4,11 +4,12 @@
     ViewData["Title"] = "Home Page";
 }
 
-    <div class="text-center">
-        <h1 class="display-4">CAP Device Manager - Setup your CAP Device</h1>
-        <p>In a different Browser Window, navigate to the following URL, type the device code and sign-in with your Azure Credentials. Click Select Subscription after that.</p>
-        <p>URL: @Model.URL</p>
-        <p>Device Code: @Model.DeviceCode</p>
-
-        <a asp-controller="Subscription" asp-action="Select">Select Subscription</a>
-    </div>
+<div style="padding:30px">
+    <h1 class="display-4">Let's Get Started</h1>
+    <p style="padding: 20px"> </p>
+    <p> The Setup Process will help to enroll the CAP Device to IoT Hub and deploy Azure IoT Module from IoT Hub instance to the device.</p>
+    <p> To get started, you are required to have an Azure Subscription.</p>
+    <p> If you don't have one, get started with a free account <a href="http://azure.microsoft.com/free" target="_blank">here</a>.</p>
+    <p style="padding: 20px"> </p>
+    <a class="btn btn-primary" asp-controller="Network" asp-action="Check" role="button">Get Started</a>
+</div>

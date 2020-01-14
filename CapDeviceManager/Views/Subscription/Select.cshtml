@@ -4,16 +4,19 @@
     ViewData["Title"] = "Home Page";
 }
 
-    <div class="text-center">
-        <h1 class="display-4">Subscriptions: </h1>
-
+<div style="padding:30px">
+    <h1 class="display-4">Select Subscription </h1>
+    <p style="padding: 20px"> </p>
+    <p> Subscriptions available for the Selected the Account:</p>
+    <select name="subscription" id="subscription-select">
         @{
             foreach (var item in Model)
             {
-                <p>@item.Id</p>
-                <p>@item.Name</p>
-                <hr />
+                <option value="@item.Id">@item.Name</option>
             }
         }
-        <a asp-controller="Subscription" asp-action="Select">Select Subscription</a>
-    </div>
+    </select>
+
+    <p style="padding: 20px"> </p>
+    @*<a asp-controller="Hub" asp-action="Select">Select IoT Hub</a>*@
+</div>

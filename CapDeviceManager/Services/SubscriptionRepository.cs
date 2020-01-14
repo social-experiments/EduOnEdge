@@ -14,14 +14,23 @@ namespace CapDeviceManager.Services
     {
         public IList<SubscriptionModel> GetSubscriptionModels()
         {
-            //Login with Az Login
             AzHelper.AzGetSubscription();
 
             string output = AzHelper.azOutput.ToString();
             output = output.Replace("\r\n", "");
-            
-            IList<SubscriptionModel> subscriptions = JsonConvert.DeserializeObject<IList<SubscriptionModel>>(output);
-            return subscriptions;
+
+            if (String.IsNullOrWhiteSpace(output))
+                return null;
+
+            try
+            {
+                IList<SubscriptionModel> subscriptions = JsonConvert.DeserializeObject<IList<SubscriptionModel>>(output);
+                return subscriptions;
+            }
+            catch (Exception exc)
+            {
+                return null;
+            }
         }
     }
 }

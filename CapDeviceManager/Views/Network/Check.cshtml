@@ -1,0 +1,28 @@
+﻿@model NetworkModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+    <div style="padding:30px">
+        <h1 class="display-4">Network Status</h1>
+        @{
+            if (Model.NetworkStatus == NetworkStatus.Connected)
+            {
+                <p style="padding: 20px"> </p>
+                <p>The CAP Device is connected to Network.</p>
+                <p style="padding: 10px">IP Address: @Model.IPAdddress</p>
+                <p style="padding: 20px"> </p>
+                <a class="btn btn-primary" asp-controller="Login" asp-action="Confirm" role="button">Azure Login</a>
+            }
+            else
+            {
+                <p style="padding: 20px"> </p>
+                <p>The CAP Device is not connected to Network.</p>
+                <p style="padding: 10px">Please check if the ethernet cable is properly plugged in to the CAP Device.</p>
+                <p style="padding: 20px"> </p>
+                <a class="btn btn-primary" asp-controller="Network" asp-action="Check" role="button">Try Again</a>
+            }
+        }
+
+    </div>

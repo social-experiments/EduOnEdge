@@ -1,0 +1,19 @@
+﻿@model IList<SubscriptionModel>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+    <div class="text-center">
+        <h1 class="display-4">Subscriptions: </h1>
+
+        @{
+            foreach (var item in Model)
+            {
+                <p>@item.Id</p>
+                <p>@item.Name</p>
+                <hr />
+            }
+        }
+        <a asp-controller="Subscription" asp-action="Select">Select Subscription</a>
+    </div>

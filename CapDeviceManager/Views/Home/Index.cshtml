@@ -1,0 +1,14 @@
+﻿@model LoginModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+    <div class="text-center">
+        <h1 class="display-4">CAP Device Manager - Setup your CAP Device</h1>
+        <p>In a different Browser Window, navigate to the following URL, type the device code and sign-in with your Azure Credentials. Click Select Subscription after that.</p>
+        <p>URL: @Model.URL</p>
+        <p>Device Code: @Model.DeviceCode</p>
+
+        <a asp-controller="Subscription" asp-action="Select">Select Subscription</a>
+    </div>

@@ -6,7 +6,7 @@ Launch Visual Studio 2019 from the Start Menu.
 
 From the Home Page, Select the "Create a New Project".
 
-![alt text](.\Images\GettingStarted_1.JPG "Create New Project")
+![alt text](./Images/GettingStarted_1.JPG "Create New Project")
 
 ## Create New Project
 

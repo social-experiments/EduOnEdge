@@ -6,25 +6,25 @@ Launch Visual Studio 2019 from the Start Menu.
 
 From the Home Page, Select the "Create a New Project".
 
-![alt text](./Images/GettingStarted_1.JPG "Create New Project")
+![alt text](./Images/GettingStarted_1.JPG "Launch VS")
 
 ## Create New Project
 
 In the "Create New Project" Wizard, choose "ASP.NET Core Web Application"
 
-![alt text](.\Images\GettingStarted_2.JPG "Create New Project")
+![alt text](./Images/GettingStarted_2.JPG "Create New Project")
 
 ## Configure Project Name
 
 Provide the name for the Project and Choose the location where the project will reside.
 
-![alt text](.\Images\GettingStarted_3.JPG "Create New Project")
+![alt text](./Images/GettingStarted_3.JPG "Configure Project")
 
 ## Configure Project Type
 
 On the left side choose "Web Application (Model-View-Controller)" and leave the defaults on the right side as in the picture below. This template selection will precreate a lot of files in the project that will be very helpful to get started.
 
-![alt text](.\Images\GettingStarted_4.JPG "Create New Project")
+![alt text](./Images/GettingStarted_4.JPG "Configure Project")
 
 ## Project Structure
 
@@ -45,16 +45,18 @@ Typically there will be one folder for every controller. We have a "Home" Folder
 - index.cshtml
 - privary.cshtml
 
-![alt text](.\Images\GettingStarted_5.JPG "Create New Project")
+![alt text](./Images/\GettingStarted_5.JPG "Project Structure")
 
 ## Edit Our Custom String in "index.chtml"
 
 Edit index.cshtml file in Views/Home to match the content present in the following picture.
 
+![alt text](./Images/\GettingStarted_6.JPG "Edit Index.cshtml")
+
 ## Compile and Run the Application
 
 Hit Ctrl + F5 to compile and Run the Application. The new string added in the "index.cshtml" gets rendered in the Browser.
 
-![alt text](.\Images\GettingStarted_7.JPG "Create New Project")
+![alt text](./Images/\GettingStarted_7.JPG "Compile and Run")
 
 Congratulations on Creating your first ASP.NET Core Project

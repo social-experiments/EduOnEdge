@@ -30,7 +30,9 @@ namespace CapDeviceManager
             services.AddScoped<IAccountRepository, AccountRepository>();
             services.AddScoped<IAccessTokenRepository, AccessTokenRepository>();
             services.AddScoped<ISubscriptionRepository, SubscriptionRepository>();
-            
+            services.AddScoped<IResourceGroupRepository, ResourceGroupRepository>();
+            services.AddScoped<IIoTHubRepository, IoTHubRepository>();
+
             services.AddControllersWithViews();
         }
 

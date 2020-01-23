@@ -1,22 +1,35 @@
-﻿@model IList<SubscriptionModel>
+﻿@model SubscriptionViewModel
 
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Subscriptions";
 }
 
 <div style="padding:30px">
-    <h1 class="display-4">Select Subscription </h1>
-    <p style="padding: 20px"> </p>
-    <p> Subscriptions available for the Selected the Account:</p>
-    <select name="subscription" id="subscription-select">
-        @{
-            foreach (var item in Model)
-            {
-                <option value="@item.Id">@item.Name</option>
-            }
+    @*<form method="post">
+        <select asp-for="SubscriptionId" asp-items="Model.Subscriptions">
+        </select>
+        <p style="padding: 20px"> </p>
+        <a asp-action="Select" asp-controller="Subscription">Select Subscription</a>
+    </form>*@
+    @{
+        if (Model.Subscriptions.Count == 0)
+        {
+            <h1 class="display-4">You do not have any subscription associated with your account. </h1>
+            <p>Please login to <a href="https://portal.azure.com" target="_blank"> Azure Portal </a> and create a Subscription. </p>
         }
-    </select>
-
-    <p style="padding: 20px"> </p>
-    @*<a asp-controller="Hub" asp-action="Select">Select IoT Hub</a>*@
+        else
+        {
+            <h1 class="display-4">Select Subscription </h1>
+            <p style="padding: 20px"> </p>
+            <p> Subscriptions available for the logged-in Account:</p>
+            <form asp-action="Select" asp-controller="Subscription" method="post">
+                <select asp-for="SubscriptionId" asp-items="Model.Subscriptions" name="subscriptionId">
+                </select>
+                <p style="padding: 20px"> </p>
+                <input type="submit" />
+            </form>
+        }
+    }
 </div>
+
+

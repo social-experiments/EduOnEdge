@@ -5,15 +5,16 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace CapDeviceManager.Services
 {
-    public class AccountRepository : IAccountRepository
+    public class IoTHubRepository : IIoTHubRepository
     {
-        public AccountModel GetAccountModel()
+        public IList<IoTHubModel> GetIoTHubModels()
         {
-            AzHelper.AzGetSubscription();
+            AzHelper.AzListIoTHub();
 
             string output = AzHelper.azOutput.ToString();
             output = output.Replace("\r\n", "");
@@ -23,10 +24,10 @@ namespace CapDeviceManager.Services
 
             try
             {
-                AccountModel account = JsonConvert.DeserializeObject<AccountModel>(output);
-                return account;
+                IList<IoTHubModel> ioTHubModels = JsonConvert.DeserializeObject<IList<IoTHubModel>>(output);
+                return ioTHubModels;
             }
-            catch(Exception exc)
+            catch (Exception exc)
             {
                 return null;
             }

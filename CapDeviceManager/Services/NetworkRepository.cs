@@ -38,7 +38,7 @@ namespace CapDeviceManager.Services
             catch (Exception exc)
             {
                 //TODO: Handle Exception Here
-                return null;
+                return result;
             }
         }
     }

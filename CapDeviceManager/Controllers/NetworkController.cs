@@ -20,6 +20,7 @@ namespace CapDeviceManager.Controllers
             this.networkRepository = networkRepository;
         }
 
+        [HttpGet]
         public IActionResult Check()
         {
             var networkModel = networkRepository.GetNetworkStatus();

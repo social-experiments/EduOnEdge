@@ -23,6 +23,7 @@ namespace CapDeviceManager.Controllers
             this.loginRepository = loginRepository;
         }
 
+        [HttpGet]
         public IActionResult Index()
         {
             return View();

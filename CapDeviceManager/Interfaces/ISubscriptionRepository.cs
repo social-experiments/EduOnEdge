@@ -9,5 +9,7 @@ namespace CapDeviceManager.Interfaces
     public interface ISubscriptionRepository
     {
         IList<SubscriptionModel> GetSubscriptionModels();
+        bool SelectSubscription(string subscriptionId);
+        SubscriptionModel GetSubscription();
     }
 }

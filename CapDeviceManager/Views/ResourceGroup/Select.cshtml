@@ -1,0 +1,20 @@
+﻿@model ResourceGroupViewModel
+
+@{
+    ViewData["Title"] = "Resource Group";
+}
+
+<div style="padding:30px">
+    <h1 class="display-4">Select Resource Groups </h1>
+    <p style="padding: 20px"> </p>
+    <p> Resource Group available for the Selected Subscription:</p>
+
+    <form asp-action="Select" asp-controller="Subscription" method="post">
+        <select asp-for="ResourceGroupName" asp-items="Model.ResourceGroups" name="resourceGroupName">
+        </select>
+        <p style="padding: 20px"> </p>
+        <input type="submit" />
+    </form>
+</div>
+
+

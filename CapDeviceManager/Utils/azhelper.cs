@@ -73,57 +73,17 @@ namespace CapDeviceManager.Utils
             }
         }
 
-        public static void AzAccountGetAccessToken()
+        public static void AzProcessExecute(string arguments)
         {
             try
             {
                 azOutput.Clear();
                 azError.Clear();
-
                 azProcess = new Process();
 
                 azProcess.StartInfo.WorkingDirectory = @"c:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\wbin";
                 azProcess.StartInfo.FileName = "az.cmd";
-                azProcess.StartInfo.Arguments = "account get-access-token --output jsonc";
-
-                azProcess.StartInfo.CreateNoWindow = true;
-                azProcess.StartInfo.UseShellExecute = false;
-                azProcess.StartInfo.RedirectStandardOutput = true;
-                azProcess.StartInfo.RedirectStandardError = true;
-                azProcess.OutputDataReceived += (sender, data) =>
-                {
-                    azOutput.Append(data.Data);
-                    Debug.WriteLine("Output: " + data.Data);
-                };
-                azProcess.ErrorDataReceived += (sender, data) =>
-                {
-                    azError.Append(data.Data);
-                    Debug.WriteLine("Error: " + data.Data);
-                };
-
-                azProcess.Start();
-                azProcess.BeginOutputReadLine();
-                azProcess.BeginErrorReadLine();
-                azProcess.WaitForExit();
-            }
-            catch (Exception exc)
-            {
-                Console.WriteLine(exc.Message.ToString());
-            }
-        }
-
-        public static void AzAccountDetails()
-        {
-            try
-            {
-                azOutput.Clear();
-                azError.Clear();
-
-                azProcess = new Process();
-
-                azProcess.StartInfo.WorkingDirectory = @"c:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\wbin";
-                azProcess.StartInfo.FileName = "az.cmd";
-                azProcess.StartInfo.Arguments = "account show --output jsonc";
+                azProcess.StartInfo.Arguments = arguments;
 
                 azProcess.StartInfo.CreateNoWindow = true;
                 azProcess.StartInfo.UseShellExecute = false;
@@ -153,117 +113,65 @@ namespace CapDeviceManager.Utils
 
         public static void AzLogoutUser()
         {
-            try
-            {
-                azOutput.Clear();
-                azError.Clear();
+            string arguments = "logout --output jsonc";
+            AzProcessExecute(arguments);
+        }
 
-                azProcess = new Process();
-
-                azProcess.StartInfo.WorkingDirectory = @"c:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\wbin";
-                azProcess.StartInfo.FileName = "az.cmd";
-                azProcess.StartInfo.Arguments = "logout --output jsonc";
-
-                azProcess.StartInfo.CreateNoWindow = true;
-                azProcess.StartInfo.UseShellExecute = false;
-                azProcess.StartInfo.RedirectStandardOutput = true;
-                azProcess.StartInfo.RedirectStandardError = true;
-                azProcess.OutputDataReceived += (sender, data) =>
-                {
-                    azOutput.Append(data.Data);
-                    Debug.WriteLine("Output: " + data.Data);
-                };
-                azProcess.ErrorDataReceived += (sender, data) =>
-                {
-                    azError.Append(data.Data);
-                    Debug.WriteLine("Error: " + data.Data);
-                };
-
-                azProcess.Start();
-                azProcess.BeginOutputReadLine();
-                azProcess.BeginErrorReadLine();
-                azProcess.WaitForExit();
-            }
-            catch (Exception exc)
-            {
-                Console.WriteLine(exc.Message.ToString());
-            }
+        public static void AzAccountGetAccessToken()
+        {
+            string arguments = "account get-access-token --output jsonc";
+            AzProcessExecute(arguments);
         }
 
         public static void AzGetSubscription()
         {
-            try
-            {
-                azOutput.Clear();
-                azError.Clear();
-                azProcess = new Process();
-
-                azProcess.StartInfo.WorkingDirectory = @"c:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\wbin";
-                azProcess.StartInfo.FileName = "az.cmd";
-                azProcess.StartInfo.Arguments = "account list --output jsonc";
-
-                azProcess.StartInfo.CreateNoWindow = true;
-                azProcess.StartInfo.UseShellExecute = false;
-                azProcess.StartInfo.RedirectStandardOutput = true;
-                azProcess.StartInfo.RedirectStandardError = true;
-                azProcess.OutputDataReceived += (sender, data) =>
-                {
-                    azOutput.Append(data.Data);
-                    Debug.WriteLine("Output: " + data.Data);
-                };
-                azProcess.ErrorDataReceived += (sender, data) =>
-                {
-                    azError.Append(data.Data);
-                    Debug.WriteLine("Error: " + data.Data);
-                };
-
-                azProcess.Start();
-                azProcess.BeginOutputReadLine();
-                azProcess.BeginErrorReadLine();
-                azProcess.WaitForExit();
-            }
-            catch (Exception exc)
-            {
-                Console.WriteLine(exc.Message.ToString());
-            }
+            string arguments = "account show --output jsonc";
+            AzProcessExecute(arguments);
         }
+
+        public static void AzListSubscription()
+        {
+            string arguments = "account list --output jsonc";
+            AzProcessExecute(arguments);
+        }
+
+        public static void AzSetSubscription(string subscriptionId)
+        {
+            string arguments = String.Format("account set -s {0}", subscriptionId);
+            AzProcessExecute(arguments);
+        }
+
         public static void AzClearAccounts()
         {
-            try
-            {
-                azOutput.Clear();
-                azError.Clear();
-                azProcess = new Process();
-
-                azProcess.StartInfo.WorkingDirectory = @"c:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\wbin";
-                azProcess.StartInfo.FileName = "az.cmd";
-                azProcess.StartInfo.Arguments = "account clear";
-
-                azProcess.StartInfo.CreateNoWindow = true;
-                azProcess.StartInfo.UseShellExecute = false;
-                azProcess.StartInfo.RedirectStandardOutput = true;
-                azProcess.StartInfo.RedirectStandardError = true;
-                azProcess.OutputDataReceived += (sender, data) =>
-                {
-                    azOutput.Append(data.Data);
-                    Debug.WriteLine("Output: " + data.Data);
-                };
-                azProcess.ErrorDataReceived += (sender, data) =>
-                {
-                    azError.Append(data.Data);
-                    Debug.WriteLine("Error: " + data.Data);
-                };
-
-                azProcess.Start();
-                azProcess.BeginOutputReadLine();
-                azProcess.BeginErrorReadLine();
-                azProcess.WaitForExit();
-            }
-            catch (Exception exc)
-            {
-                Console.WriteLine(exc.Message.ToString());
-            }
+            string arguments = "account clear";
+            AzProcessExecute(arguments);
         }
+
+        public static void AzListIoTHub()
+        {
+            string arguments = "iot hub list --output jsonc";
+            AzProcessExecute(arguments);
+        }
+
+        public static void AzCreateIoTHub(string name, string resourceGroup, string sku)
+        {
+            string arguments = "iot hub list --output jsonc";
+            AzProcessExecute(arguments);
+        }
+
+        public static void AzCreateResourceGroup(string location, string resourceGroupName)
+        {
+            string arguments = String.Format("group create -l {0} -n {1}", location, resourceGroupName);
+            AzProcessExecute(arguments);
+        }
+
+        public static void AzListResourceGroup()
+        {
+            string arguments = "group list";
+            AzProcessExecute(arguments);
+        }
+
+
     }
 }
 

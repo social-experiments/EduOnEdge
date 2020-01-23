@@ -14,7 +14,7 @@ namespace CapDeviceManager.Services
     {
         public IList<SubscriptionModel> GetSubscriptionModels()
         {
-            AzHelper.AzGetSubscription();
+            AzHelper.AzListSubscription();
 
             string output = AzHelper.azOutput.ToString();
             output = output.Replace("\r\n", "");
@@ -26,6 +26,40 @@ namespace CapDeviceManager.Services
             {
                 IList<SubscriptionModel> subscriptions = JsonConvert.DeserializeObject<IList<SubscriptionModel>>(output);
                 return subscriptions;
+            }
+            catch (Exception exc)
+            {
+                return null;
+            }
+        }
+
+        public bool SelectSubscription(string subscriptionId)
+        {
+            AzHelper.AzSetSubscription(subscriptionId);
+
+            string error = AzHelper.azError.ToString();
+            error = error.Replace("\r\n", "");
+
+            if (String.IsNullOrWhiteSpace(error)) //No Error Here
+                return true;
+
+            return false;
+        }
+
+        public SubscriptionModel GetSubscription()
+        {
+            AzHelper.AzGetSubscription();
+
+            string output = AzHelper.azOutput.ToString();
+            output = output.Replace("\r\n", "");
+
+            if (String.IsNullOrWhiteSpace(output))
+                return null;
+
+            try
+            {
+                SubscriptionModel subscription = JsonConvert.DeserializeObject<SubscriptionModel>(output);
+                return subscription;
             }
             catch (Exception exc)
             {

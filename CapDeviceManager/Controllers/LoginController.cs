@@ -15,6 +15,7 @@ namespace CapDeviceManager.Controllers
         private readonly ILogger<LoginController> _logger;
         private ILoginRepository loginRepository;
         private IAccountRepository accountRepository;
+
         public LoginController(ILogger<LoginController> logger, ILoginRepository loginRepository, IAccountRepository accountRepository)
         {
             _logger = logger;
@@ -22,6 +23,7 @@ namespace CapDeviceManager.Controllers
             this.accountRepository = accountRepository;
         }
 
+        [HttpGet]
         public IActionResult Confirm()
         {
             AccountModel accountModel = accountRepository.GetAccountModel();
@@ -35,6 +37,7 @@ namespace CapDeviceManager.Controllers
             }
         }
 
+        [HttpGet]
         public IActionResult SignIn()
         {
             LoginModel loginModel = loginRepository.GetLoginModel();

@@ -45,18 +45,18 @@ Typically there will be one folder for every controller. We have a "Home" Folder
 - index.cshtml
 - privary.cshtml
 
-![alt text](./Images/\GettingStarted_5.JPG "Project Structure")
+![alt text](./Images/GettingStarted_5.JPG "Project Structure")
 
 ## Edit Our Custom String in "index.chtml"
 
 Edit index.cshtml file in Views/Home to match the content present in the following picture.
 
-![alt text](./Images/\GettingStarted_6.JPG "Edit Index.cshtml")
+![alt text](./Images/GettingStarted_6.JPG "Edit Index.cshtml")
 
 ## Compile and Run the Application
 
 Hit Ctrl + F5 to compile and Run the Application. The new string added in the "index.cshtml" gets rendered in the Browser.
 
-![alt text](./Images/\GettingStarted_7.JPG "Compile and Run")
+![alt text](./Images/GettingStarted_7.JPG "Compile and Run")
 
 Congratulations on Creating your first ASP.NET Core Project

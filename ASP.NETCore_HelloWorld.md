@@ -1,5 +1,11 @@
 # Getting Started with ASP.NET Core
 
+## PreRequiste
+- Install Visul Studio Enterprise 2019
+- Complete these courses on Pluralsight.com 
+  - [For asp.net core web app devleopment](https://app.pluralsight.com/library/courses/building-aspdotnet-core-mvc-web-applications/table-of-contents)
+  - [For bootstrap and CSS](https://app.pluralsight.com/library/courses/aspnetcore-mvc-efcore-bootstrap-angular-web/table-of-contents)
+
 ## Launch VS 2019
 
 Launch Visual Studio 2019 from the Start Menu.

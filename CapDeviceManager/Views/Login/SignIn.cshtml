@@ -3,16 +3,16 @@
 @{
     ViewData["Title"] = "Azure Login";
 }
-    <div style="padding:30px">
-        <h1 class="display-4">Sign In to Azure Account</h1>
-        <p style="padding: 20px"> </p>
-        <p>We are going to use device code to Sign-In Into Azure</p>
-        <p>Your Device Code for Sign-In Process is here. Copy it to Clipboard.</p>
-        <h2>Device Code: @Model.DeviceCode </h2>
-        <p style="padding: 20px"> </p>
-        <p>Follow the link below, type the device code and sign-in with your Azure Credentials. </p>
-        <a class="btn btn-primary" href="@Model.URL" target="_blank" role="button">Sign In</a>
-        <p style="padding: 20px"> </p>
-        <p>After the Sign-In Process (Wait for 10 Seconds), Select the link below to Confirm Account Details.</p>
-        <a class="btn btn-primary" asp-controller="Login" asp-action="Confirm" role="button">Confirm Account</a>
-    </div>
+<div style="padding:30px">
+    <h1 class="display-4">Sign In to Azure Account</h1>
+    <p style="padding: 20px"> </p>
+    <p>We are going to use device code to Sign-In Into Azure</p>
+    <p>Your Device Code for Sign-In Process is here. Copy it to Clipboard.</p>
+    <h2>Device Code: @Model.DeviceCode </h2>
+    <p style="padding: 20px"> </p>
+    <p>Follow the link below, type the device code and sign-in with your Azure Credentials. </p>
+    <a class="btn btn-primary" href="@Model.URL" target="_blank" role="button">Sign In</a>
+    <p style="padding: 20px"> </p>
+    <p>After the Sign-In Process (Wait for 10 Seconds), Select the link below to Confirm Account Details.</p>
+    <a class="btn btn-primary" asp-controller="Login" asp-action="Confirm" role="button">Confirm Account</a>
+</div>

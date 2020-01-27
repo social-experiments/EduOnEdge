@@ -13,9 +13,9 @@ namespace CapDeviceManager.Models
 
         public string DeviceCode { get; set; }
 
-        public LoginModel(string deviceCode)
+        public LoginModel(string url, string deviceCode)
         {
-            URL = "https://microsoft.com/devicelogin";
+            URL = url;
             DeviceCode = deviceCode;
         }
     }

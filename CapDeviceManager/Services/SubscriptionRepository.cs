@@ -36,14 +36,14 @@ namespace CapDeviceManager.Services
         public bool SelectSubscription(string subscriptionId)
         {
             AzHelper.AzSetSubscription(subscriptionId);
+            return true;
+            //string error = AzHelper.azError.ToString();
+            //error = error.Replace("\r\n", "");
 
-            string error = AzHelper.azError.ToString();
-            error = error.Replace("\r\n", "");
+            //if (String.IsNullOrWhiteSpace(error)) //No Error Here
+            //    return true;
 
-            if (String.IsNullOrWhiteSpace(error)) //No Error Here
-                return true;
-
-            return false;
+            //return false;
         }
 
         public SubscriptionModel GetSubscription()

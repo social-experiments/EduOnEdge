@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CapDeviceManager.Utils;
 
 namespace CapDeviceManager.Controllers
 {
@@ -48,7 +49,11 @@ namespace CapDeviceManager.Controllers
         [HttpPost]
         public IActionResult Select(string iotHubName)
         {
-            var accessToken = accessTokenRepository.GetAccessTokenModel();
+            Console.WriteLine("hello!");
+            // var accessToken = accessTokenRepository.GetAccessTokenModel();
+            /*IList<SelectListItem> selectListItems = new List<SelectListItem>();
+            var iotHubViewModel = new IoTHubViewModel() { IoTHubName = iotHubName, IoTHubs = selectListItems };*/
+            AzHelper.AzAddCAPDevice(iotHubName, );
             return View();
         }
     }

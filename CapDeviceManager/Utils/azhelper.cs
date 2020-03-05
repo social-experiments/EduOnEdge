@@ -171,6 +171,12 @@ namespace CapDeviceManager.Utils
             AzProcessExecute(arguments);
         }
 
+        public static void AzAddCAPDevice(string iotHubName, string deviceId)
+        {
+            string arguments = string.Format("iot hub device-identity create -n {0} -d {1} --ee", iotHubName, deviceId);
+            AzProcessExecute(arguments);
+        }
+
 
     }
 }

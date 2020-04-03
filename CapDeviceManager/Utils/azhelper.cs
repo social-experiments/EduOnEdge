@@ -173,10 +173,52 @@ namespace CapDeviceManager.Utils
 
         public static void AzAddCAPDevice(string iotHubName, string deviceId)
         {
-            string arguments = string.Format("iot hub device-identity create -n {0} -d {1} --ee", iotHubName, deviceId);
+            // string arguments = string.Format("iot hub device-identity create -n {0} -d {1} --ee", iotHubName, deviceId);
+            string arguments = string.Format("iot hub device-identity create --hub-name {0} --device-id {1}", iotHubName, deviceId);
             AzProcessExecute(arguments);
         }
 
+        public static async void AzGetConnectionString(string iotHubName, string deviceId)
+        {
+            try
+            {
+                azOutput.Clear();
+                azError.Clear();
+                azProcess = new Process();
+                //azProcess.StartInfo.WorkingDirectory = @"c:\Program Files (x86)\Microsoft SDKs\Azure\CLI2";
+                //azProcess.StartInfo.FileName = "python.exe";
+                //azProcess.StartInfo.Arguments = "-IBm azure.cli login --use-device-code";
+
+                azProcess.StartInfo.WorkingDirectory = @"c:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\wbin";
+                azProcess.StartInfo.FileName = "az.cmd";
+                string arguments = string.Format("iot hub device-identity show-connection-string --hub-name {0} --device-id {1} --output table", iotHubName, deviceId);
+                azProcess.StartInfo.Arguments = arguments;
+
+                azProcess.StartInfo.CreateNoWindow = true;
+                azProcess.StartInfo.UseShellExecute = false;
+                azProcess.StartInfo.RedirectStandardOutput = true;
+                azProcess.StartInfo.RedirectStandardError = true;
+                azProcess.OutputDataReceived += (sender, data) =>
+                {
+                    azOutput.Append(data.Data);
+                    Debug.WriteLine("Output: " + data.Data);
+                };
+                azProcess.ErrorDataReceived += (sender, data) =>
+                {
+                    azError.Append(data.Data);
+                    Debug.WriteLine("Error: " + data.Data);
+                };
+
+                azProcess.Start();
+                azProcess.BeginOutputReadLine();
+                azProcess.BeginErrorReadLine();
+                await WaitForExitAsync(azProcess);
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc.Message.ToString());
+            }
+        }        
 
     }
 }

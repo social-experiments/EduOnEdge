@@ -50,11 +50,12 @@ namespace CapDeviceManager.Controllers
         public IActionResult Select(string iotHubName, string deviceId)
         {
             Console.WriteLine("hello!");
+            IList<IoTEdgeModel> devices = this.ioTHubRepository. (iotHubName);
             // var accessToken = accessTokenRepository.GetAccessTokenModel();
             /*IList<SelectListItem> selectListItems = new List<SelectListItem>();
             var iotHubViewModel = new IoTHubViewModel() { IoTHubName = iotHubName, IoTHubs = selectListItems };*/
-            AzHelper.AzAddCAPDevice(iotHubName, deviceId);
-            AzHelper.AzGetConnectionString(iotHubName, deviceId);
+            //AzHelper.AzAddCAPDevice(iotHubName, deviceId);
+            //AzHelper.AzGetConnectionString(iotHubName, deviceId);
             // Console.WriteLine(deviceId);
             return View();
         }

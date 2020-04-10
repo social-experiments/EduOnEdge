@@ -34,7 +34,8 @@ namespace CapDeviceManager.Controllers
 
             IList<SelectListItem> selectListItems = new List<SelectListItem>();
             var iotHubViewModel = new IoTHubViewModel() { IoTHubName = "", IoTHubs = selectListItems };
-            if (iotHubModels.Count > 0)
+            // Therefore, iotHubModels may be null due to some Azure account may not have an IoT HUb created. 
+            if (iotHubModels != null && iotHubModels.Count > 0)
             { 
                 foreach (var iotHubModel in iotHubModels)
                 {
@@ -50,7 +51,7 @@ namespace CapDeviceManager.Controllers
         public IActionResult Select(string iotHubName, string deviceId)
         {
             Console.WriteLine("hello!");
-            IList<IoTEdgeModel> devices = this.ioTHubRepository. (iotHubName);
+            IList<IoTEdgeModel> devices = ioTHubRepository.GetIoTEdgeModels(iotHubName);
             // var accessToken = accessTokenRepository.GetAccessTokenModel();
             /*IList<SelectListItem> selectListItems = new List<SelectListItem>();
             var iotHubViewModel = new IoTHubViewModel() { IoTHubName = iotHubName, IoTHubs = selectListItems };*/

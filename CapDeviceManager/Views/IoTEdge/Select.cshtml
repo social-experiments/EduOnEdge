@@ -1,0 +1,23 @@
+﻿@model IoTEdgeViewModel
+
+@{
+    ViewData["Title"] = "IoT Edge";
+}
+
+<div style="padding:30px">
+    @{
+        <h1 class="display-4">Select an Existing IoT Edge Or Create a New IoT Edge</h1>
+        <p style="padding: 20px"> </p>
+        <p> IoT Edge available for the selected IoT Hub:</p>
+        <form asp-action="Select" asp-controller="IoTHub" method="post">
+            <select asp-for="IoTEdgeName" asp-items="Model.IoTEdges" name="iotHubName">
+            </select>
+            <p style="padding: 20px"> </p>
+            <p> Enter a new device id</p>
+            <input name="deviceId"
+                   type="text"
+                   value="" />
+            <input type="submit" />
+        </form>
+    }
+</div>

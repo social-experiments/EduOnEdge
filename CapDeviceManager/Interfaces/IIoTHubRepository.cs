@@ -9,6 +9,5 @@ namespace CapDeviceManager.Interfaces
     public interface IIoTHubRepository
     {
         IList<IoTHubModel> GetIoTHubModels();
-        IList<IoTEdgeModel> GetIoTEdgeModels(string iotHubName);
     }
 }

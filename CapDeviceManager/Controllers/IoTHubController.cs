@@ -57,7 +57,8 @@ namespace CapDeviceManager.Controllers
             //AzHelper.AzAddCAPDevice(iotHubName, deviceId);
             //AzHelper.AzGetConnectionString(iotHubName, deviceId);
             // Console.WriteLine(deviceId);
-            iotHubName = "phuong";
+            
+            // iotHubName = "phuong";
 
             return RedirectToAction("Select", "IoTEdge", new { iotHubName = iotHubName});
         }

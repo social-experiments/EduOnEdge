@@ -15,14 +15,14 @@ namespace CapDeviceManager.Services
 
             string output = AzHelper.azOutput.ToString();
             output = output.Replace("\r\n", "");
-
             if (String.IsNullOrWhiteSpace(output))
                 return null;
 
             try
             {
-                IList<IoTEdgeModel> ioTHubModels = JsonConvert.DeserializeObject<IList<IoTEdgeModel>>(output);
-                return ioTHubModels;
+                IList<IoTEdgeModel> ioTEdgeModels = JsonConvert.DeserializeObject<IList<IoTEdgeModel>>(output);
+                
+                return ioTEdgeModels;
             }
             catch (Exception exc)
             {

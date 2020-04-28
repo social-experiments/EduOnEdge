@@ -56,9 +56,13 @@ namespace CapDeviceManager.Controllers
             AzHelper.AzGetConnectionString(IoTEdgeController.iotHubName, iotEdgeName);
             Console.WriteLine(AzHelper.azOutput);
 
+            string header = "ConnectionString-------------------------------------------------------------------------------------------------------------------------------------";
+            int headerLen = header.Length;
+            string connectionString = AzHelper.azOutput.Remove(0, headerLen).ToString();
+
             // iotHubName = "phuong";
 
-            return null;
+            return RedirectToAction("Index", "Configuration", new {connectionString = connectionString});
         }
     }
 }

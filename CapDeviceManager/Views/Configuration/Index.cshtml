@@ -9,7 +9,7 @@
         function hide() {
             let x = document.getElementById("spinner");
             x.style.display = "block";
-            let y = document.getElementId("submit")
+            let y = document.getElementById("submit");
             y.disabled = true;
             // y.style.display = "none";
         }
@@ -24,13 +24,13 @@
         <p style="padding: 20px"> </p>
         <p> Connection String:</p>
         <label>@Model.ConnectionString</label>
-        <!--<form asp-action="Select" asp-controller="IoTHub" method="post">-->
+        <form asp-action="RunScript" asp-controller="Configuration" >
+            <p style="padding: 20px"> </p>
+
+            <input id="submit" type="submit" value="configure on device" />
+        </form>
 
     }
-
-    <p style="padding: 20px"> </p>
-
-    <input id="submit" type="button" value="configure on device" onclick="hide()" />
     <div class="d-flex justify-content-center">
         <div class="spinner-border" role="status" style="display: none" id="spinner">
             <span class="sr-only">Loading...</span>

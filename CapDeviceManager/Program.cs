@@ -24,7 +24,7 @@ namespace CapDeviceManager
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>()   
-                    .UseUrls("https://192.168.52.1:5001;http://192.168.52.1:5000");
+                    .UseUrls("https://192.168.138.138:5001;http://192.168.138.138:5000");
                 });
     }
 }

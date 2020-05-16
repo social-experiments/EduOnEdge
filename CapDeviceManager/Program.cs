@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CapDeviceManager.Controllers;
+using CapDeviceManager.Models;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
@@ -12,6 +14,7 @@ namespace CapDeviceManager
     public class Program
     {
         public static void Main(string[] args)
+
         {
             CreateHostBuilder(args).Build().Run();
         }
@@ -20,7 +23,8 @@ namespace CapDeviceManager
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseStartup<Startup>();
+                    webBuilder.UseStartup<Startup>()   
+                    .UseUrls("https://192.168.52.1:5001;http://192.168.52.1:5000");
                 });
     }
 }

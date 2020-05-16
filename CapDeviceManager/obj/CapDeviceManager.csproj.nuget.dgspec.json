@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\tiona\\Documents\\impact++\\EduOnEdge\\CapDeviceManager\\CapDeviceManager.csproj": {}
+    "C:\\Users\\amitg\\OneDrive\\Desktop\\impact-final\\EduOnEdge\\CapDeviceManager\\CapDeviceManager.csproj": {}
   },
   "projects": {
-    "C:\\Users\\tiona\\Documents\\impact++\\EduOnEdge\\CapDeviceManager\\CapDeviceManager.csproj": {
+    "C:\\Users\\amitg\\OneDrive\\Desktop\\impact-final\\EduOnEdge\\CapDeviceManager\\CapDeviceManager.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tiona\\Documents\\impact++\\EduOnEdge\\CapDeviceManager\\CapDeviceManager.csproj",
+        "projectUniqueName": "C:\\Users\\amitg\\OneDrive\\Desktop\\impact-final\\EduOnEdge\\CapDeviceManager\\CapDeviceManager.csproj",
         "projectName": "CapDeviceManager",
-        "projectPath": "C:\\Users\\tiona\\Documents\\impact++\\EduOnEdge\\CapDeviceManager\\CapDeviceManager.csproj",
-        "packagesPath": "C:\\Users\\tiona\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tiona\\Documents\\impact++\\EduOnEdge\\CapDeviceManager\\obj\\",
+        "projectPath": "C:\\Users\\amitg\\OneDrive\\Desktop\\impact-final\\EduOnEdge\\CapDeviceManager\\CapDeviceManager.csproj",
+        "packagesPath": "C:\\Users\\amitg\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\amitg\\OneDrive\\Desktop\\impact-final\\EduOnEdge\\CapDeviceManager\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\tiona\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\amitg\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -82,7 +82,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
         }
       }
     }

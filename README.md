@@ -1,6 +1,7 @@
 # EduOnEdge
 Offline Content Access
 
+
 ### Instructions on publishing
  * Make sure to configure the correct IP address in the Program.cs file
  * Run the following command from the root folder if on an ubuntu 18.04-x64 machine,
@@ -20,7 +21,6 @@ Instructions on configuring and running CapDeviceManager on a linux machine
 wget https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
 sudo dpkg -i packages-microsoft-prod.deb
 ```
-
 
 ```
 sudo add-apt-repository universe
@@ -63,3 +63,7 @@ dotnet run CapDeviceManager.csproj
 ```
 
 4. Open up `https://localhost:5000` on your machine or replace localhost with machine's IP address
+=======
+# Prerequite
+Please install azure CLI on machine where you are trying this project.
+

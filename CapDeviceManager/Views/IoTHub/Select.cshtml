@@ -4,23 +4,24 @@
     ViewData["Title"] = "IoT Hub";
 }
 
-<div style="padding:30px">
-    @{
-        if (Model.IoTHubs.Count == 0)
-        {
-            <h1 class="display-4">You do not have any IoTHub associated with your subscription. </h1>
-        }
-        else
-        {
-            <h1 class="display-4">Select IoT Hubs </h1>
-            <p style="padding: 20px"> </p>
-            <p> IoT Hub available for the Selected Subscription:</p>
-            <form asp-action="Select" asp-controller="IoTHub" method="post">
-                <select asp-for="IoTHubName" asp-items="Model.IoTHubs" name="iotHubName">
-                </select>
+    <div style="padding:30px">
+        @{
+            if (Model.IoTHubs.Count == 0)
+            {
+                <h1 class="display-4">You do not have any IoTHub associated with your subscription. </h1>
+            }
+            else
+            {
+                <h1 class="display-4">Select IoT Hubs </h1>
                 <p style="padding: 20px"> </p>
-                <input type="submit" />
-            </form>
+                <p> IoT Hub available for the Selected Subscription:</p>
+                <form asp-action="Select" asp-controller="IoTHub" method="post">
+                    <select asp-for="IoTHubName" asp-items="Model.IoTHubs" name="iotHubName">
+                    </select>
+                    <p style="padding: 20px"> </p>
+        
+                    <input type="submit" />
+                </form>
+            }
         }
-    }
-</div>
+    </div>

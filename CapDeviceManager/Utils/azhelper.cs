@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.IO;
+using System.Runtime.InteropServices;
 
 namespace CapDeviceManager.Utils
 {
@@ -43,8 +45,26 @@ namespace CapDeviceManager.Utils
                 //azProcess.StartInfo.FileName = "python.exe";
                 //azProcess.StartInfo.Arguments = "-IBm azure.cli login --use-device-code";
 
-                azProcess.StartInfo.WorkingDirectory = @"c:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\wbin";
-                azProcess.StartInfo.FileName = "az.cmd";
+                if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+                {
+                    if (!File.Exists(@"/usr/bin/az"))
+                    {
+                        Console.WriteLine("Please make sure to download az cli on this machine");
+                        return;
+                    }
+                    azProcess.StartInfo.WorkingDirectory = @"/usr/bin";
+                    azProcess.StartInfo.FileName = "az";
+                }
+                else
+                {
+                    if (!File.Exists(@"c:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\wbin\az.cmd"))
+                    {
+                        Console.WriteLine("Please make sure to download az cli on this machine");
+                        return;
+                    }
+                    azProcess.StartInfo.WorkingDirectory = @"c:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\wbin";
+                    azProcess.StartInfo.FileName = "az.cmd";
+                }
                 azProcess.StartInfo.Arguments = "login --use-device-code";
 
                 azProcess.StartInfo.CreateNoWindow = true;
@@ -81,8 +101,27 @@ namespace CapDeviceManager.Utils
                 azError.Clear();
                 azProcess = new Process();
 
-                azProcess.StartInfo.WorkingDirectory = @"c:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\wbin";
-                azProcess.StartInfo.FileName = "az.cmd";
+                if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+                {
+                    if (!File.Exists(@"/usr/bin/az"))
+                    {
+                        Console.WriteLine("Please make sure to download az cli on this machine");
+                        return;
+                    }
+                    azProcess.StartInfo.WorkingDirectory = @"/usr/bin";
+                    azProcess.StartInfo.FileName = "az";
+                }
+                else
+                {
+                    if (!File.Exists(@"c:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\wbin\az.cmd"))
+                    {
+                        Console.WriteLine("Please make sure to download az cli on this machine");
+                        return;
+                    }
+                    azProcess.StartInfo.WorkingDirectory = @"c:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\wbin";
+                    azProcess.StartInfo.FileName = "az.cmd";
+                }
+
                 azProcess.StartInfo.Arguments = arguments;
 
                 azProcess.StartInfo.CreateNoWindow = true;
@@ -171,7 +210,24 @@ namespace CapDeviceManager.Utils
             AzProcessExecute(arguments);
         }
 
+        public static void AzAddCAPDevice(string iotHubName, string deviceId)
+        {
+            // string arguments = string.Format("iot hub device-identity create -n {0} -d {1} --ee", iotHubName, deviceId);
+            string arguments = string.Format("iot hub device-identity create --hub-name {0} --device-id {1}", iotHubName, deviceId);
+            AzProcessExecute(arguments);
+        }
 
+        public static  void AzGetConnectionString(string iotHubName, string deviceId)
+        {
+            string arguments = string.Format("iot hub device-identity show-connection-string --hub-name {0} --device-id {1} --output table", iotHubName, deviceId);
+            AzProcessExecute(arguments);
+        }
+
+        public static async void AzGetDevices(string iotHubName)
+        {
+            string arguments = string.Format("iot hub device-identity list --hub-name {0}", iotHubName);
+            AzProcessExecute(arguments);
+        }
     }
 }
 

@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CapDeviceManager.Utils;
 
 namespace CapDeviceManager.Controllers
 {
@@ -33,7 +34,8 @@ namespace CapDeviceManager.Controllers
 
             IList<SelectListItem> selectListItems = new List<SelectListItem>();
             var iotHubViewModel = new IoTHubViewModel() { IoTHubName = "", IoTHubs = selectListItems };
-            if (iotHubModels.Count > 0)
+            // iotHubModels may be null due to some Azure account may not have an IoT HUb created. 
+            if (iotHubModels != null && iotHubModels.Count > 0)
             { 
                 foreach (var iotHubModel in iotHubModels)
                 {
@@ -48,8 +50,17 @@ namespace CapDeviceManager.Controllers
         [HttpPost]
         public IActionResult Select(string iotHubName)
         {
-            var accessToken = accessTokenRepository.GetAccessTokenModel();
-            return View();
+            Console.WriteLine("hello!");
+            // var accessToken = accessTokenRepository.GetAccessTokenModel();
+            /*IList<SelectListItem> selectListItems = new List<SelectListItem>();
+            var iotHubViewModel = new IoTHubViewModel() { IoTHubName = iotHubName, IoTHubs = selectListItems };*/
+            //AzHelper.AzAddCAPDevice(iotHubName, deviceId);
+            //AzHelper.AzGetConnectionString(iotHubName, deviceId);
+            // Console.WriteLine(deviceId);
+            
+            // iotHubName = "phuong";
+
+            return RedirectToAction("Select", "IoTEdge", new { iotHubName = iotHubName});
         }
     }
 }

@@ -32,5 +32,6 @@ namespace CapDeviceManager.Services
                 return null;
             }
         }
+
     }
 }

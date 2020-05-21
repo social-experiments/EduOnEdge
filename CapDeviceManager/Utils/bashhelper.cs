@@ -58,8 +58,9 @@ namespace CapDeviceManager.Utils
 
         public static void BashDeployIotEdge(string connectionString)
         {
-            string path = "/mnt/" + Directory.GetCurrentDirectory().Replace("C:\\","c/").Replace("\\", "/") + "/Utils";
+            string path = "/mnt/" + Directory.GetCurrentDirectory().Replace("C:\\","c/").Replace("\\", "/") + "/Utils/root";
             //Console.WriteLine(path);
+            //BashProcessExecute(path + "/test.sh \"" + connectionString + "\"");
             BashProcessExecute(path + "/deploy_iot_edge.sh \"" + connectionString + "\"");
             //CheckDeployment();
         }

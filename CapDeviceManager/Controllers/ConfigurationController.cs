@@ -22,8 +22,8 @@ namespace CapDeviceManager.Controllers
         [HttpPost]
         public void RunScript()
         {
-            Console.WriteLine("I'm in  runscript");
-            BashHelper.BashHelloWorld(connection);
+            Console.WriteLine("Connection String: " + connection);
+            BashHelper.BashDeployIotEdge(connection);
             Console.WriteLine(BashHelper.bashOutput);
         }
     }

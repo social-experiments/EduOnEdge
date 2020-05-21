@@ -66,4 +66,6 @@ dotnet run CapDeviceManager.csproj
 =======
 # Prerequite
 Please install azure CLI on machine where you are trying this project.
+Make sure az verion is 2.1.* and above, and add extension with command:
+	az extension add --name azure-cli-iot-ext
 

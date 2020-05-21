@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.IO;
+using System.Timers;
 
 namespace CapDeviceManager.Utils
 {
@@ -59,11 +56,19 @@ namespace CapDeviceManager.Utils
             }
         }
 
-        public static void BashHelloWorld(string connectionString)
+        public static void BashDeployIotEdge(string connectionString)
         {
             string path = "/mnt/" + Directory.GetCurrentDirectory().Replace("C:\\","c/").Replace("\\", "/") + "/Utils";
             //Console.WriteLine(path);
-            BashProcessExecute(path + "/test.sh");
+            BashProcessExecute(path + "/deploy_iot_edge.sh \"" + connectionString + "\"");
+            //CheckDeployment();
+        }
+
+        private static void CheckDeployment()
+        {
+            Timer timer = new Timer();
+
+
         }
     }
 }

@@ -1,5 +1,4 @@
 #!/bin/sh
-
 if [[ $EUID -ne 0 ]]; then
     echo "This script must be run as root"
     exit 1
@@ -8,7 +7,7 @@ fi
 # Install IoT Edge Runtime - Ubuntu 18.04
 ret=$(curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list)
 
-# Generated list 
+# Generated list
 ret=$(sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/)
 
 # Install Microsoft GPG public key
@@ -28,7 +27,6 @@ echo "installed iot-edge"
 
 # Make back-up for testing
 ret=$(sudo cp /etc/iotedge/config.yaml /etc/iotedge/config.yaml_backup)
-echo "made back-up for config.yaml"
 
 # Edit to add connection string
 
@@ -39,6 +37,3 @@ echo "added connection string"
 ret=$(sudo systemctl restart iotedge)
 echo "daemon restarted"
 echo "IoT Edge sucessfully installed and configured"
-
-#added for debugging
-#read -n 1 -rsp $'Press any key to continue\n' 

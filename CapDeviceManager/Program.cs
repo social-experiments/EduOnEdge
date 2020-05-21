@@ -23,8 +23,8 @@ namespace CapDeviceManager
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseStartup<Startup>()   
-                    .UseUrls("https://192.168.138.138:5001;http://192.168.138.138:5000");
+                    webBuilder.UseStartup<Startup>();   
+                    //.UseUrls("https://192.168.138.138:5001;http://192.168.138.138:5000");
                 });
     }
 }

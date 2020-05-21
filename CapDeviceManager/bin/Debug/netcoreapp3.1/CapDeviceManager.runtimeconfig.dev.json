@@ -1,8 +1,8 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-      "C:\\Users\\amitg\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\amitg\\.nuget\\packages",
+      "C:\\Users\\tiona\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\tiona\\.nuget\\packages",
       "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
     ]
   }

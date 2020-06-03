@@ -1,6 +1,9 @@
 # EduOnEdge
 Offline Content Access
-
+### Pre-requiste 
+1. Install az as per instrcution here 
+               https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-apt?view=azure-cli-latest
+	   
 
 ### Instructions on publishing
  * Make sure to configure the correct IP address in the Program.cs file

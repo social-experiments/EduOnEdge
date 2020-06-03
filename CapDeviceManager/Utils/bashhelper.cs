@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Text;
 using System.IO;
 using System.Timers;
+using System.Runtime.InteropServices;
 
 namespace CapDeviceManager.Utils
 {
@@ -26,9 +27,27 @@ namespace CapDeviceManager.Utils
                  */
                 //ProcessStartInfo psi = new ProcessStartInfo(@"C:\cygwin64\bin\bash.exe");
                 // bashProcess.StartInfo = psi;
-                var escapedArgs = arguments.Replace("\"", "\\\"");
-                bashProcess.StartInfo.FileName = "C:/Windows/System32/bash";
-                bashProcess.StartInfo.Arguments = $"-c \"{escapedArgs}\"";
+
+                if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+                {
+                    if (!File.Exists(@"/bin/bash"))
+                    {
+                        Console.WriteLine("Cannot find bin/bash on your machine");
+                        return;
+                    }
+                    bashProcess.StartInfo.FileName = @"/bin/bash";
+                }
+                else
+                {
+                    if (!File.Exists(@"c:/Windows/System32/bash.exe"))
+                    {
+                        Console.WriteLine("Cannot find C:/Windows/System32/bash on your machine");
+                        return;
+                    }
+                    var escapedArgs = arguments.Replace("\"", "\\\"");
+                    bashProcess.StartInfo.FileName = "C:/Windows/System32/bash";
+                    bashProcess.StartInfo.Arguments = $"-c \"{escapedArgs}\"";
+                }
 
                 bashProcess.StartInfo.CreateNoWindow = true;
                 bashProcess.StartInfo.UseShellExecute = false;
@@ -61,7 +80,7 @@ namespace CapDeviceManager.Utils
             string path = "/mnt/" + Directory.GetCurrentDirectory().Replace("C:\\","c/").Replace("\\", "/") + "/Utils/root";
             //Console.WriteLine(path);
             //BashProcessExecute(path + "/test.sh \"" + connectionString + "\"");
-            BashProcessExecute(path + "/deploy_iot_edge.sh \"" + connectionString + "\"");
+            BashProcessExecute("sudo " + path + "/deploy_iot_edge_cpy.sh \"" + connectionString + "\"");
             //CheckDeployment();
         }
 

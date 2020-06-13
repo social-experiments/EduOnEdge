@@ -43,8 +43,10 @@ More information about the installation is included [here](https://docs.microsof
   * First, go to Edit > Preferences> Projects> SDK Locations > .NET CORE
   * Right click on CapDeviceManager in the explorer view in MonoDevelop and click on Restore NuGet Packages
   * Click on the 3 dots on the right side of the location input field
-  * Go to /usr/share/dotnet/dotnet and choose it.
-  * Close preferences and rebuild the project
+  * Go to /usr/share/dotnet/dotnet and choose it. Then close preferences
+  * Right click Dependencies folder in MonoDevelop and update it
+  * Rebuild and then run the project
+  * The output console should display the link of the webpage
 
 2. Run the project, if the browser doesn't open up, manually go to 
 ```

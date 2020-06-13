@@ -15,7 +15,9 @@ Instructions on configuring and running CapDeviceManager on a linux machine
 
 ## Downloads
 
-1. Download dotnet SDK for Ubuntu 18.04 using these commands 
+1. Download Ubuntu 16.04 LTS ISO from [here](https://releases.ubuntu.com/16.04/) and VMware Workstation Player from [here](https://www.vmware.com/content/vmware/vmware-published-sites/us/products/workstation-player.html.html)
+
+2. Download dotnet SDK for Ubuntu 16.04 LTS using these commands 
 
 ```
 wget https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
@@ -31,9 +33,9 @@ sudo apt-get install dotnet-sdk-3.1
 ```
 More information about the installation is included [here](https://docs.microsoft.com/en-us/dotnet/core/install/linux-ubuntu#1604-)
 
-2. Download monodevelop in order to build the project [here](https://www.monodevelop.com/download/#fndtn-download-lin)
+3. Download monodevelop in order to build the project [here](https://www.monodevelop.com/download/#fndtn-download-lin)
 
-3. Follow the manual install instructions for Azure CLI displayed [here](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-apt?view=azure-cli-latest#manual-install-instructions)
+4. Follow the manual install instructions for Azure CLI displayed [here](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-apt?view=azure-cli-latest#manual-install-instructions)
 
 ## Instructions To Run Project from MonoDevelop
 
